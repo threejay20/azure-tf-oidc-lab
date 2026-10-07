@@ -9,6 +9,7 @@ locals {
   tags = {
     project    = "azure-tf-oidc-lab"
     managed_by = "terraform"
+    onwer      = "threejay20"
   }
 }
 
@@ -56,4 +57,11 @@ resource "azurerm_user_assigned_identity" "chatbot" {
   location            = local.location
   resource_group_name = local.rg_name
   tags                = local.tags
+}
+
+resource "azurerm_subnet" "data" {
+  name                 = "snet-data"
+  resource_group_name  = local.rg_name
+  virtual_network_name = azurerm_virtual_network.lab.name
+  address_prefixes     = ["10.20.2.0/24"]
 }

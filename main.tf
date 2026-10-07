@@ -9,7 +9,7 @@ locals {
   tags = {
     project    = "azure-tf-oidc-lab"
     managed_by = "terraform"
-    onwer      = "threejay20"
+    owner      = "threejay20"
   }
 }
 
